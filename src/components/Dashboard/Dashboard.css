@@ -1,0 +1,46 @@
+.dashboard .dash-top-nav{
+    padding: 1rem 1rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: content-body;
+    gap: 2rem;
+}
+
+.canvas-click{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1rem 0.5rem;
+    font-size: 1.5rem;
+}
+
+.offcanvas.offcanvas-start{
+    width: 16rem;
+    background-color: var(--green);
+    color: #fff;
+}
+
+.canvas-body{
+    font-family: body;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.canvas-body .nav-links{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.task-details{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:580px) {
+    
+}

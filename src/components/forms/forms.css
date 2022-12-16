@@ -1,0 +1,30 @@
+.form-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    font-family: body;
+}
+
+.form-group img{
+    width: 90px;
+}
+
+.form-group .card-header{
+    font-family: header;
+    font-weight: 700;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.form-group .card-body{
+    padding: 2rem 1rem;
+}
+
+.form-group small{
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+}

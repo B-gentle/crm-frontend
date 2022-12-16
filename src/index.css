@@ -1,0 +1,30 @@
+:root{
+  --green : #00a85a;
+}
+
+body {
+  margin: 0;
+  font-family: body
+}
+
+body a{
+  color: inherit;
+  text-decoration: none;
+}
+
+
+@font-face {
+  font-family: headers;
+  src: url(./fonts/Solway-Bold.ttf);
+}
+
+@font-face {
+  font-family: content-body;
+  src: url(./fonts/Solway-Light.ttf);
+}
+
+@font-face {
+  font-family: body ;
+  src: url(./fonts/Solway-Regular.ttf);
+}
+
