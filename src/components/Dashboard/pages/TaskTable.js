@@ -167,9 +167,10 @@ return (
     {!error && taskTable.length === 0 ? <div>No Task Found in the database</div> : !visible ? <><div className='task-details'>
       <p><b>Total task</b> : {taskTable.length}</p>
       <p><b>Completed task</b> : {tasksCompleted.length}</p>
-    </div><Table bordered className='task-table'>
+    </div><Table bordered responsive className='task-table'>
         <thead>
           <tr>
+            <th>S/N</th>
             <th>Task Title</th>
             <th>Assigned To</th>
             <th>Priority</th>
@@ -179,6 +180,7 @@ return (
         <tbody>
           {taskTable && taskTable.map((row, id) =>
             <tr key={id} style={{ backgroundColor: row.completed === true ? 'var(--green)' : row.priority === 'urgent' ? 'red' : '', color: row.completed === true ? '#fff' : row.priority === 'urgent' ? '#fff' : '' }}>
+              <td>{id + 1}</td>
               <td>{row.title}</td>
               <td>{row.assignedTo}</td>
               <td>{row.priority}</td>

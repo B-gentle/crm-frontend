@@ -3,22 +3,23 @@ import Toaster from '../../Toast';
 import axios from 'axios';
 import './pages.css';
 import ToDoListForm from '../../forms/ToDoListForm';
+import { URL } from '../../../App';
 
 const ToDoList = () => {
     const reducer = (state, action) =>{
 switch (action.type) {
     case 'SUCCESS':
-        return {...state, success: true, error: false}
+        return {...state, success: true, error: false, loading: false}
        case 'ERROR':
-        return {...state, success: false, error: true} 
+        return {...state, success: false, error: true, loading: false} 
         case 'PENDING' :
-            return {...state, success: false, error: false, isLoading: true}
+            return {...state, success: false, error: false, loading: true}
 
     default:
         return state;
 }
     }
-    const [{error, success}, dispatch] = useReducer(reducer, { error: false, success: false})
+    const [{error, success, loading}, dispatch] = useReducer(reducer, { error: false, success: false, loading: false})
 
     const[displayMessage, setDisplayMessage] = useState('')
     const [showToast, setShowToast] = useState(false)
@@ -37,6 +38,7 @@ switch (action.type) {
     const handleTaskSubmit = async (e) => {
         const { title, assignedTo } = task
         e.preventDefault();
+        dispatch({type: 'PENDING'})
 
         if (title === '' || assignedTo === '') {
             return (setShowToast(true),
@@ -45,7 +47,7 @@ switch (action.type) {
         }
         
         try {
-            const response = await axios.post('/api/task', task)
+            const response = await axios.post(`${URL}/api/task`, task)
             if(response.status === 200){
                 dispatch({type: 'SUCCESS'})
                 setShowToast(true)
@@ -69,7 +71,7 @@ switch (action.type) {
         return (
             <div>
                 <Toaster onclose={onclose} showtoast={showToast} error={error} errormessage={displayMessage} success={success}/>
-                <ToDoListForm onsubmit={handleTaskSubmit} onchange={handleTaskChange} task={task} />
+                <ToDoListForm onsubmit={handleTaskSubmit} onchange={handleTaskChange} task={task} loading={loading} />
             </div>
         )
     }

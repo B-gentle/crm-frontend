@@ -2,6 +2,10 @@
     font-family: body;
 }
 
+.task-table{
+    overflow: hidden;
+}
+
 .task-table tr{
     font-family: content-body;
     font-size: 1.1rem;
